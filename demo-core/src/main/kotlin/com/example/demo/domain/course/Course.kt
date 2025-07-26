@@ -1,8 +1,14 @@
+package com.example.demo.domain.course
+
 import com.example.demo.Id
 import com.example.demo.IdConverter
-import com.example.demo.User
-import jakarta.persistence.*
-import jakarta.persistence.Id as JpaId
+import com.example.demo.domain.user.User
+import jakarta.persistence.Column
+import jakarta.persistence.Convert
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Table
 
 @Entity
 @Table(name = "course")
@@ -12,7 +18,7 @@ class Course(
     instructorId: Id<User>,
     subInstructorId: Id<User>? = null,
 ) {
-    @JpaId
+    @jakarta.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Id<Course> = id
         protected set
