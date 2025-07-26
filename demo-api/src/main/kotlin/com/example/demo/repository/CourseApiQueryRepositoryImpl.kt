@@ -4,6 +4,7 @@ import com.example.demo.Id
 import com.example.demo.domain.course.QCourse.course
 import com.example.demo.domain.user.User
 import com.example.demo.repository.dto.CourseResult
+import com.example.demo.value
 import com.querydsl.core.types.Projections
 import com.querydsl.jpa.impl.JPAQueryFactory
 
@@ -17,7 +18,8 @@ class CourseApiQueryRepositoryImpl(
                     CourseResult::class.java,
                     course.id,
                     course.title,
-                    course.subInstructorId,
+//                    course.subInstructorId,
+                    course.subInstructorId.value,
                 )
             )
             .from(course)
