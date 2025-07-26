@@ -5,10 +5,13 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.TestConstructor
+import org.springframework.test.context.jdbc.Sql
 
 @SpringBootTest
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
+@Sql("/sql/user.sql", "/sql/course.sql")
 class CourseServiceTest(
     private val courseService: CourseService,
 ) {
@@ -17,7 +20,7 @@ class CourseServiceTest(
         @DisplayName("JPA Repository")
         @Test
         fun findByJpaRepository() {
-           courseService.findByJpaRepository(Id(1))
+           courseService.findByJpaRepository(Id(3))
         }
 
     }
@@ -28,7 +31,7 @@ class CourseServiceTest(
         @DisplayName("QueryDSL Repository")
         @Test
         fun findByQueryDslRepository() {
-            courseService.findByQueryDsl(Id(1))
+            courseService.findByQueryDsl(Id(3))
         }
     }
 
