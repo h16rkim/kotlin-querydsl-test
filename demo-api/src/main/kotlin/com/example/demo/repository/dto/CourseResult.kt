@@ -4,7 +4,7 @@ import com.example.demo.Id
 import com.example.demo.domain.user.User
 
 
-class CourseResult(
+data class CourseResult(
     val id: Long,
     val title: String,
 
